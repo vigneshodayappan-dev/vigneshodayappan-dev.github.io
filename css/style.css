@@ -138,6 +138,79 @@ body::before {
     color: var(--text);
     font-size: 1.6rem;
     cursor: pointer;
+    border-radius: 25px;
+}
+/* ==========================================
+    MOBILE NAVIGATION (PREMIUM FLOATING PANEL)
+========================================= */
+@media (max-width: 768px) {
+    /* Container adjustment when menu is open to prevent page scroll issues */
+    body.menu-open {
+        overflow: hidden;
+    }
+
+    /* Target the container element instead of changing just padding */
+    .navbar {
+        padding: 16px 20px;
+        transition: var(--transition);
+    }
+
+    /* Force button visibility on mobile */
+    .menu-btn {
+        display: block;
+        z-index: 1001; /* Stay above the floating menu */
+        transition: var(--transition);
+    }
+
+    /* Transform nav-links into a centered floating container */
+    .nav-links {
+        position: fixed;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(0.9); /* Starts centered but scaled down */
+        width: 90%;
+        max-width: 400px;
+        height: auto;
+        padding: 48px 24px;
+        
+        /* Premium UI Slate Glassmorphism */
+        background: rgba(11, 15, 25, 0.95);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        border: 1px solid var(--border);
+        border-radius: 24px; /* Perfectly rounded corners matching your header */
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+
+        /* Layout & Visibility */
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 28px;
+        z-index: 1000;
+        
+        /* Smooth pop-in animation transition states */
+        opacity: 0;
+        visibility: hidden;
+        transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1), 
+                    opacity 0.3s ease, 
+                    visibility 0.3s ease;
+    }
+
+    /* Active state: Fades in, expands smoothly, and centers perfectly */
+    .nav-links.active {
+        opacity: 1;
+        visibility: visible;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    .nav-links a {
+        font-size: 1.2rem;
+        font-weight: 400;
+        letter-spacing: 0.5px;
+        width: 100%;
+        text-align: center;
+        padding: 8px 0;
+    }
 }
 
 /* ==========================================

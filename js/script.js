@@ -13,37 +13,44 @@ document.addEventListener("DOMContentLoaded", () => {
     const sections = document.querySelectorAll("section");
     const footerParagraph = document.querySelector(".footer p");
 
-    /* ==========================================================================
-       1. NAVIGATION DRAWER MANAGEMENT (ACCESSIBLE MOBILE MENU)
-       ========================================================================== */
-    if (menuBtn && navLinks) {
-        menuBtn.addEventListener("click", () => {
-            const isMenuExpanded = navLinks.classList.toggle("active");
-            menuBtn.setAttribute("aria-expanded", isMenuExpanded);
-            
-            const internalIcon = menuBtn.querySelector("i");
-            if (internalIcon) {
-                internalIcon.classList.toggle("bi-list", !isMenuExpanded);
-                internalIcon.classList.toggle("bi-x", isMenuExpanded);
-            }
-        });
-    }
+  /* ==========================================================================
+   1. NAVIGATION DRAWER MANAGEMENT (ACCESSIBLE FLOATING CONTAINER)
+   ========================================================================== */
+if (menuBtn && navLinks) {
+    const internalIcon = menuBtn.querySelector("i");
+
+    // Helper function to force close the menu safely
+    const closeMenu = () => {
+        navLinks.classList.remove("active");
+        document.body.classList.remove("menu-open"); // Restores background scroll
+        menuBtn.setAttribute("aria-expanded", "false");
+        if (internalIcon) {
+            internalIcon.classList.add("bi-list");
+            internalIcon.classList.remove("bi-x");
+        }
+    };
+
+    // Toggle logic for the menu button click
+    menuBtn.addEventListener("click", () => {
+        const isMenuExpanded = navLinks.classList.toggle("active");
+        document.body.classList.toggle("menu-open", isMenuExpanded); // Locks background scroll
+        menuBtn.setAttribute("aria-expanded", isMenuExpanded);
+        
+        if (internalIcon) {
+            internalIcon.classList.toggle("bi-list", !isMenuExpanded);
+            internalIcon.classList.toggle("bi-x", isMenuExpanded);
+        }
+    });
 
     // Auto-collapse mobile navigation overlay when an anchor link is selected
     navItems.forEach(anchorElement => {
         anchorElement.addEventListener("click", () => {
-            if (navLinks?.classList.contains("active")) {
-                navLinks.classList.remove("active");
-                menuBtn?.setAttribute("aria-expanded", "false");
-                
-                const internalIcon = menuBtn?.querySelector("i");
-                if (internalIcon) {
-                    internalIcon.classList.add("bi-list");
-                    internalIcon.classList.remove("bi-x");
-                }
+            if (navLinks.classList.contains("active")) {
+                closeMenu();
             }
         });
     });
+}
 
     /* ==========================================================================
        2. CLEAN URL HISTORY & SMOOTH SCROLL INTEGRATION
