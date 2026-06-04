@@ -734,16 +734,16 @@ body::before {
     color: var(--text-light);
 }
 
-/* ==========================================
-   ENTERPRISE CONTACT NEXUS
-========================================== */
 .corporate-contact-card {
-    padding: 50px !important;
+    padding: 60px !important;
     background: linear-gradient(135deg, rgba(22, 28, 45, 0.4) 0%, rgba(15, 23, 42, 0.6) 100%);
     position: relative;
     overflow: hidden;
+    border-radius: 16px;
+    border: 1px solid var(--border);
 }
 
+/* Desktop Accent Strip (Left Side) */
 .corporate-contact-card::before {
     content: "";
     position: absolute;
@@ -756,8 +756,8 @@ body::before {
 
 .contact-grid-layout {
     display: grid;
-    grid-template-columns: 1.2fr 1fr;
-    gap: 40px;
+    grid-template-columns: 1.3fr 1fr;
+    gap: 50px;
     align-items: center;
 }
 
@@ -767,7 +767,7 @@ body::before {
     gap: 8px;
     padding: 6px 14px;
     background: rgba(255, 255, 255, 0.03);
-    border: 2px solid var(--border);
+    border: 1px solid var(--border);
     border-radius: 25px;
     font-size: 0.75rem;
     font-weight: 600;
@@ -782,25 +782,27 @@ body::before {
 }
 
 .contact-intent h3 {
-    font-size: 1.75rem;
+    font-size: 2rem;
     color: var(--primary);
     font-weight: 700;
     letter-spacing: -0.5px;
-    margin-bottom: 12px;
+    margin-bottom: 16px;
+    line-height: 1.3;
 }
 
 .contact-intent p {
     color: var(--text-light);
-    font-size: 0.95rem;
+    font-size: 1rem;
     line-height: 1.6;
+    margin: 0;
 }
 
 .contact-action-zone {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding-left: 40px;
-    border-left: 2px solid var(--border);
+    padding-left: 50px;
+    border-left: 1px solid var(--border);
 }
 
 .action-label {
@@ -808,36 +810,43 @@ body::before {
     text-transform: uppercase;
     letter-spacing: 1px;
     color: var(--text-light);
-    margin-bottom: 12px;
+    margin-bottom: 16px;
     font-weight: 600;
 }
 
 .enterprise-email-btn {
     display: inline-flex;
     align-items: center;
-    gap: 12px;
-    padding: 16px 24px;
+    gap: 14px;
+    padding: 16px 28px;
     background: var(--primary);
-    color: rgb(0, 128, 255);
+    color: #0f172a; /* Dark text on white button for sharp contrast */
     text-decoration: none;
     border-radius: 30px;
     font-weight: 600;
     font-size: 0.95rem;
-    width: 100%;
+    max-width: 100%;
+    width: max-content; /* Keeps button neat on large displays */
     justify-content: space-between;
     transition: var(--transition);
     box-shadow: var(--shadow-sm);
 }
 
+.email-text {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
 .enterprise-email-btn:hover {
-    background: #ffffff;
-    transform: translateY(-2px);
+    background: var(--accent);
+    color: #ffffff;
+    transform: translateY(-3px);
     box-shadow: var(--shadow-md);
 }
 
 .enterprise-email-btn i:not(.arrow-skew) {
     font-size: 1.1rem;
-    opacity: 0.8;
 }
 
 .arrow-skew {
@@ -846,7 +855,67 @@ body::before {
 }
 
 .enterprise-email-btn:hover .arrow-skew {
-    transform: translate(2px, -2px);
+    transform: translate(3px, -3px);
+}
+
+/* ==========================================
+   RESPONSIVE BREAKPOINTS
+========================================== */
+
+/* Tablets / Small Desktops */
+@media (max-width: 992px) {
+    .corporate-contact-card {
+        padding: 40px !important;
+    }
+    
+    .contact-grid-layout {
+        grid-template-columns: 1fr;
+        gap: 35px;
+    }
+
+    .contact-action-zone {
+        padding-left: 0;
+        border-left: none;
+        border-top: 1px solid var(--border);
+        padding-top: 35px;
+    }
+
+    /* Flip decorative accent bar to the top on mobile/tablet */
+    .corporate-contact-card::before {
+        width: 100%;
+        height: 4px;
+    }
+    
+    .enterprise-email-btn {
+        width: 100%; /* Spans full card width dynamically on smaller screens */
+    }
+}
+
+/* Smart Phones */
+@media (max-width: 576px) {
+    .corporate-contact-card {
+        padding: 30px 20px !important;
+        border-radius: 12px;
+    }
+    
+    .contact-intent h3 {
+        font-size: 1.5rem;
+        margin-bottom: 12px;
+    }
+    
+    .contact-intent p {
+        font-size: 0.9rem;
+    }
+    
+    .enterprise-email-btn {
+        padding: 14px 20px;
+        font-size: 0.85rem;
+        gap: 8px;
+    }
+    
+    .arrow-skew {
+        display: none; /* Hides extra arrow on small screens to save space */
+    }
 }
 
 
@@ -1028,7 +1097,7 @@ body::before {
 }
 
 
-/* ============ philosphy of design ============
+/* ============ philosophy of design ============
 ================================================ */
 
 /* Philosophy Section Container */
@@ -1044,6 +1113,7 @@ body::before {
     box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05);
     overflow: hidden;
     max-width: 700px;
+    width: 100%; /* Ensures card stretches correctly inside margins */
     margin: 0 auto;
     font-family: 'JetBrains Mono', monospace;
 }
@@ -1051,7 +1121,7 @@ body::before {
 /* Terminal Top Header */
 .terminal-header {
     background-color: #0f172a;
-    padding: 12px 16px;
+    padding: 14px 16px;
     display: flex;
     align-items: center;
     position: relative;
@@ -1062,6 +1132,7 @@ body::before {
 .terminal-controls {
     display: flex;
     gap: 8px;
+    z-index: 2; /* Ensures buttons sit cleanly on top of centering actions */
 }
 
 .control-dot {
@@ -1085,17 +1156,38 @@ body::before {
     display: flex;
     align-items: center;
     gap: 6px;
+    white-space: nowrap;
 }
 
 /* Code Display Area */
 .terminal-body {
     padding: 24px;
     margin: 0;
-    overflow-x: auto;
+    overflow: hidden; /* Contains child scaling anomalies */
 }
 
-.terminal-body pre {
+.terminal-code-block {
     margin: 0;
+    overflow-x: auto; /* Activates scrolling for long expressions */
+    white-space: pre;  /* Holds exact code formatting indentations */
+    word-wrap: normal;
+    display: block;
+    width: 100%;
+}
+
+/* Elegant, minimal custom scrollbar for overflowing code blocks */
+.terminal-code-block::-webkit-scrollbar {
+    height: 6px;
+}
+.terminal-code-block::-webkit-scrollbar-track {
+    background: rgba(15, 23, 42, 0.3);
+}
+.terminal-code-block::-webkit-scrollbar-thumb {
+    background: rgba(148, 163, 184, 0.3);
+    border-radius: 3px;
+}
+.terminal-code-block::-webkit-scrollbar-thumb:hover {
+    background: rgba(148, 163, 184, 0.5);
 }
 
 .terminal-body code {
@@ -1103,12 +1195,58 @@ body::before {
     font-size: 0.95rem;
     line-height: 1.6;
     font-family: 'JetBrains Mono', monospace;
+    display: inline-block; /* Crucial setting for flawless horizontal padding layout resets */
+    min-width: 100%;
 }
 
 /* Syntax Highlighting Color Matrix */
-.code-keyword { color: #f472b6; font-weight: 600; }  /* Pink/Magenta for const, while, return */
-.code-function { color: #38bdf8; }                 /* Cyan/Blue for methods/functions */
-.code-variable { color: #818cf8; }                 /* Indigo for names/variables */
-.code-property { color: #fb7185; }                 /* Rose for object property keys */
-.code-string { color: #34d399; }                   /* Emerald green for quotes/strings */
-.code-number { color: #fb923c; }                   /* Orange for numbers */
+.code-keyword { color: #f472b6; font-weight: 600; }
+.code-function { color: #38bdf8; }
+.code-variable { color: #818cf8; }
+.code-property { color: #fb7185; }
+.code-string { color: #34d399; }
+.code-number { color: #fb923c; }
+
+
+/* ==========================================
+   RESPONSIVE MEDIA BREAKPOINTS
+========================================== */
+
+/* Mobile / Small Devices */
+@media (max-width: 576px) {
+    .philosophy-section {
+        padding: 40px 0; /* Slightly reduces spacing over sections */
+    }
+
+    .terminal-header {
+        padding: 12px;
+        justify-content: space-between; /* Changes layout dynamically when space is constrained */
+    }
+
+    .terminal-tab {
+        position: static; /* Removes absolute positioning so text doesn't collision overlap Mac buttons */
+        transform: none;
+        font-size: 0.75rem;
+    }
+
+    .terminal-body {
+        padding: 16px; /* Tightens text inner gutter gaps */
+    }
+
+    .terminal-body code {
+        font-size: 0.8rem; /* Drops font-size for better viewport readability */
+        line-height: 1.5;
+    }
+}
+
+/* Super Small Device Adjustments (Below 360px wide) */
+@media (max-width: 360px) {
+    .terminal-controls {
+        gap: 5px; /* Shrinks dot intervals slightly to avoid collisions */
+    }
+    
+    .control-dot {
+        width: 10px;
+        height: 10px;
+    }
+}
