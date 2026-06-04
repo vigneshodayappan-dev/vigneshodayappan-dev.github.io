@@ -1,0 +1,1114 @@
+/* ==========================================
+   VIGNESH PORTFOLIO
+   ELITE MINIMALIST SLATE ARCHITECTURE
+========================================== */
+
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap');
+
+/* ==========================================
+   CORPORATE PALETTE VARIETALS
+========================================== */
+:root {
+    --bg: #0b0f19;                 /* Slate Black Base */
+    --card-bg: rgba(22, 28, 45, 0.4); /* Solid Slate Glass */
+    --card-hover: rgba(30, 41, 59, 0.7);
+    --border: rgba(255, 255, 255, 0.05);
+    --border-hover: rgba(255, 255, 255, 0.15);
+    
+    /* Strict Corporate Colors */
+    --primary: #f8fafc;            /* Clean Slate White */
+    --accent: #38bdf8;             /* Tailored Executive Blue Tint */
+    --text: #e2e8f0;               /* Primary Text Slate */
+    --text-light: #64748b;         /* Muted Professional Subtitles */
+    
+    --shadow-sm: 0 4px 20px rgba(0, 0, 0, 0.2);
+    --shadow-md: 0 12px 40px rgba(0, 0, 0, 0.3);
+    --transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* ==========================================
+   RESET & STRUCTURE
+========================================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    overflow-x: hidden;
+    line-height: 1.625;
+}
+
+.container {
+    width: 100%;
+    max-width: 1140px;
+    margin: 0 auto;
+}
+
+/* Clean background grid texture instead of bright colors */
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: linear-gradient(rgba(255,255,255,0.01) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,0.01) 1px, transparent 1px);
+    background-size: 60px 60px;
+    z-index: -1;
+    pointer-events: none;
+}
+
+/* ==========================================
+   NAVBAR (PREMIUM SLATE SLIDER)
+========================================== */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 999;
+}
+
+.navbar {
+    width: 100%;
+    max-width: 100%;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24px 2%;
+    background: transparent;
+    border-bottom: 1px solid transparent;
+    border-radius: 24px;
+    transition: var(--transition);
+}
+
+.navbar.scrolled {
+    background: rgba(11, 15, 25, 0.9);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    padding: 16px 6%;
+    border-bottom: 1px solid var(--border);
+    box-shadow: var(--shadow-sm);
+    border-radius: 24px;
+}
+
+.logo a {
+    font-size: 1.35rem;
+    font-weight: 400;
+    color: var(--primary);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 32px;
+}
+
+.nav-links a {
+    color: var(--text-light);
+    text-decoration: none;
+    font-weight: 400;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.nav-links a:hover,
+.active-link {
+    color: var(--primary);
+}
+
+.menu-btn {
+    display: none;
+    background: none;
+    border: none;
+    color: var(--text);
+    font-size: 1.6rem;
+    cursor: pointer;
+}
+
+/* ==========================================
+   HERO CONTEXT
+========================================== */
+.hero-section {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 120px 6% 60px;
+}
+
+.hero-container {
+    display: flex;
+    align-items: center;
+    gap: 80px;
+}
+
+.hero-content {
+    flex: 1.2;
+}
+
+.hero-subtitle {
+    display: block;
+    font-size: 0.85rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.hero-content h1 {
+    font-size: 3.4rem;
+    line-height: 1.15;
+    font-weight: 400;
+    color: var(--primary);
+}
+
+.hero-content h2 {
+    margin-top: 10px;
+    color: var(--text);
+    font-size: 1.6rem;
+    font-family:monospace;
+    font-weight: 200;
+}
+
+.hero-content p {
+    margin-top: 24px;
+    color: var(--text-light);
+    font-size: 1rem;
+    max-width: 580px;
+}
+
+.hero-buttons {
+    margin-top: 36px;
+    display: flex;
+    gap: 16px;
+}
+
+/* ==========================================
+   BUTTONS (SHARP & FORMAL)
+========================================== */
+.btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    padding: 12px 28px;
+    border-radius: 25px; /* Crisp corporate corners */
+    font-weight: 400;
+    font-size: 0.9rem;
+    transition: var(--transition);
+}
+
+.primary-btn {
+    background: var(--primary);
+    color: var(--bg);
+}
+
+.primary-btn:hover {
+    background: linear-gradient(rgb(255, 255, 255), rgb(145, 255, 255));
+    transform: translateX(2px);
+}
+
+.secondary-btn {
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    color: var(--text);
+    background: transparent;
+}
+
+.secondary-btn:hover {
+    border-color: var(--primary);
+    transform: translateY(-2px);
+    color: #000;
+    font-weight: 400;
+    background: linear-gradient(rgb(255, 255, 255), rgb(167, 230, 255));
+}
+
+/* ==========================================
+   HERO IMAGE FRAME
+========================================== */
+.profile-card {
+    width: 320px;
+    height: 320px;
+    border-radius: 8px; /* Clean rectangular form */
+    overflow: hidden;
+    background: var(--card-bg);
+    padding: 8px;
+}
+
+.profile-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 4px;
+    filter: grayscale(20%);
+    transition: var(--transition);
+}
+
+/* ==========================================
+   SECTIONS & SECTION TITLES
+========================================== */
+.section {
+    padding: 110px 6%;
+}
+
+.section-title {
+    margin-bottom: 54px;
+}
+
+.section-title h2 {
+    font-size: 2rem;
+    font-weight: 400;
+    color: var(--primary);
+    letter-spacing: -0.5px;
+}
+
+/* ==========================================
+   GLASS COMPONENT GENERAL (NO GLOW)
+========================================== */
+.glass-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-radius: 8px; /* Standard Professional Radius */
+    padding: 32px;
+    transition: var(--transition);
+}
+
+.glass-card:hover {
+    border-color: var(--border-hover);
+    background: var(--card-hover);
+    box-shadow: var(--shadow-md);
+}
+
+/* ==========================================
+   ABOUT ME ADVANCED DESIGN
+========================================== */
+.about-grid {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr;
+    gap: 30px;
+    align-items: stretch;
+}
+
+.card-icon-header {
+    font-size: 1.8rem;
+    color: var(--accent);
+    margin-bottom: 16px;
+}
+
+.about-main h3 {
+    font-size: 1.50rem;
+    margin-bottom: 16px;
+    color: var(--primary);
+    font-weight: 300;
+}
+
+.about-main p {
+    color: var(--text-slate);
+    margin-bottom: 16px;
+    font-size: 0.98rem;
+}
+
+.about-metrics {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.metric-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.metric-item i {
+    font-size: 1.4rem;
+    color: var(--accent);
+    margin-bottom: 10px;
+}
+
+.metric-item h4 {
+    font-size: 1.1rem;
+    color: var(--primary);
+    margin-bottom: 6px;
+}
+
+.metric-item p {
+    font-size: 0.85rem;
+    color: var(--text-light);
+}
+
+/* ==========================================
+   TECHNICAL SKILLS
+========================================== */
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 24px;
+}
+
+.card-header-with-icon {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 24px;
+}
+
+.card-header-with-icon i {
+    font-size: 1.3rem;
+    color: var(--accent);
+}
+
+.skills-grid h3 {
+    font-size: 1.2rem;
+    color: var(--primary);
+}
+
+.skills-list {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.skills-list li {
+    padding: 6px 14px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px solid var(--border);
+    border-radius: 25px;
+    font-size: 0.85rem;
+    color: var(--text);
+}
+
+/* ==========================================
+   PROJECTS
+========================================== */
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 24px;
+}
+
+.project-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 16px;
+}
+
+.project-icon {
+    font-size: 1.4rem;
+    color: var(--text-light);
+    transition: var(--transition);
+}
+
+.project-card:hover .project-icon {
+    color: var(--accent);
+}
+
+.project-card h3 {
+    font-size: 1.25rem;
+    color: var(--primary);
+}
+
+.project-card p {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-bottom: 24px;
+}
+
+.tech-stack {
+    font-size: 0.8rem;
+    font-weight: 400;
+    color: var(--accent);
+    letter-spacing: 0.5px;
+}
+
+/* ==========================================
+   EDUCATION COMPONENT (PREMIUM ANIMATED TIMELINE)
+========================================== */
+
+/* Main Container Space */
+.education-section {
+    padding: 80px 0;
+    position: relative;
+    background-color: #0f172a; /* Deep UI base slate */
+}
+
+.animated-timeline {
+    position: relative;
+    max-width: 850px;
+    margin: 40px auto 0 auto;
+    padding: 10px 0;
+}
+
+/* Enhanced Glowing Vertical Axis Line */
+.timeline-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 32px;
+    width: 3px;
+    background: linear-gradient(to bottom, #38bdf8 0%, rgba(56, 189, 248, 0.3) 70%, rgba(255, 255, 255, 0.03) 100%);
+    box-shadow: 0 0 15px rgba(56, 189, 248, 0.15);
+}
+
+/* Individual Content Blocks */
+.timeline-block {
+    position: relative;
+    margin-bottom: 50px;
+    padding-left: 80px;
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* High Performance Micro-Interaction on Hover */
+.timeline-block:hover {
+    transform: translateX(6px);
+}
+
+/* Node Markers Setup - Subtle State */
+.timeline-marker {
+    position: absolute;
+    left: 17px;
+    top: 14px;
+    width: 34px;
+    height: 34px;
+    border-radius: 30% 70% 70% 30% / 30% 30% 70% 70%; /* Organic geometric shape */
+    background: #1e293b;
+    border: 2px solid #334155;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 5;
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Hidden/Subtle State for Icons */
+.timeline-marker i {
+    font-size: 0.95rem;
+    color: #94a3b8;
+    opacity: 0.5; /* Dimmed by default */
+    transform: scale(0.9);
+    transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Marker State Changes on Hover - Dynamic Reveal */
+.timeline-block:hover .timeline-marker {
+    border-color: #38bdf8;
+    background: #38bdf8;
+    border-radius: 50%;
+    box-shadow: 0 0 20px rgba(56, 189, 248, 0.6);
+}
+
+/* Make Icon fully visible and crisp on Hover */
+.timeline-block:hover .timeline-marker i {
+    color: #0f172a;
+    opacity: 1; /* Fully visible on hover */
+    transform: scale(1.1); /* Slight crisp pop animation */
+}
+
+/* Active Core Pulse Loop for IIT Madras Entry */
+.marker-pulse {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: inherit;
+    border: 2px solid #38bdf8;
+    animation: markerPulseGlow 2.5s infinite linear;
+    opacity: 0.8;
+    pointer-events: none;
+}
+
+@keyframes markerPulseGlow {
+    0% { transform: scale(1); opacity: 0.8; }
+    50% { transform: scale(1.4); opacity: 0.2; }
+    100% { transform: scale(1.6); opacity: 0; }
+}
+
+/* Premium Card Construction Details */
+.timeline-content.glass-card {
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.7) 0%, rgba(15, 23, 42, 0.8) 100%);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    border-radius: 12px;
+    padding: 26px;
+    box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.3);
+    position: relative;
+    overflow: hidden;
+    transition: border-color 0.4s ease, box-shadow 0.4s ease;
+}
+
+/* Micro Background Light Accent Flare */
+.timeline-content.glass-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: transparent;
+    transition: background-color 0.3s ease;
+}
+
+.timeline-block:hover .timeline-content.glass-card {
+    border-color: rgba(56, 189, 248, 0.2);
+    box-shadow: 0 15px 35px -5px rgba(0, 0, 0, 0.4), 0 0 25px rgba(56, 189, 248, 0.03);
+}
+
+.timeline-block:hover .timeline-content.glass-card::before {
+    background-color: #38bdf8;
+}
+
+/* Text & Typography Layout Elements */
+.timeline-header-meta {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.timeline-date {
+    font-size: 0.8rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    color: #38bdf8;
+    text-transform: uppercase;
+}
+
+/* Status Indicator Pill for Featured Entry */
+.academic-badge {
+    background: rgba(56, 189, 248, 0.1);
+    color: #38bdf8;
+    border: 1px solid rgba(56, 189, 248, 0.2);
+    padding: 2px 10px;
+    border-radius: 20px;
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+/* Text Element Color Schemes */
+.timeline-content h3 {
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: #f8fafc;
+    margin: 0 0 6px 0;
+}
+
+.timeline-content .degree {
+    font-size: 0.95rem;
+    color: #cbd5e1;
+    margin-bottom: 4px;
+    font-weight: 500;
+}
+
+.timeline-content .academic-details {
+    font-size: 0.85rem;
+    color: #64748b;
+    margin: 0;
+}
+
+/* Unique Stylings for the Featured/Current Card Block */
+.featured-milestone .timeline-content.glass-card {
+    border-color: rgba(56, 189, 248, 0.15);
+    background: linear-gradient(135deg, rgba(30, 41, 59, 0.9) 0%, rgba(15, 23, 42, 0.9) 100%);
+}
+
+
+/* ==========================================
+   FOOTER
+========================================== */
+.footer {
+    padding: 32px;
+    border-top: 1px solid var(--border);
+    color: var(--text-light);
+    font-size: 0.85rem;
+    text-align: center;
+    /* Pushes text to the left, icons to the right */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+}
+
+.footer-copyright {
+    margin: 0;
+}
+
+.footer-socials {
+    display: flex;
+    align-items: center;
+    gap: 20px; /* Space between icons */
+}
+
+.footer-socials a {
+    color: var(--text-light);
+    font-size: 1.2rem; /* Size of the Bootstrap icons */
+    text-decoration: none;
+    transition: color 0.2s ease, transform 0.2s ease;
+    display: inline-block;
+    line-height: 1;
+}
+
+/* Hover state */
+.footer-socials a:hover {
+    color: var(--text); /* Swaps to your main text color on hover */
+    transform: translateY(-2px);
+}
+
+/* Mobile Responsiveness: Stacks nicely on smaller screens */
+@media (max-width: 576px) {
+    .footer {
+        flex-direction: column-reverse; /* Icons on top, copyright on bottom for mobile */
+        text-align: center;
+        gap: 16px;
+    }
+}
+
+/* =====================================================
+=======New BUtton style for language and MailBox=========
+======================================================== */
+
+/* ==========================================
+   LINGUISTIC PROFILE DESIGN
+========================================== */
+.languages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 20px;
+}
+
+.lang-chip {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    padding: 20px;
+    border-radius: 50px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    transition: var(--transition);
+}
+
+.lang-chip:hover {
+    background: var(--card-hover);
+    border-color: var(--border-hover);
+    transform: translateY(-2px);
+}
+
+.lang-code {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: var(--accent);
+    background: rgba(15, 180, 250, 0.06);
+    border: 24px solid rgba(0, 179, 255, 0.15);
+    width: 42px;
+    height: 42px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25px;
+    letter-spacing: 0.5px;
+}
+
+.lang-meta h4 {
+    font-size: 1rem;
+    color: var(--primary);
+    font-weight: 600;
+}
+
+.lang-meta p {
+    font-size: 0.8rem;
+    color: var(--text-light);
+}
+
+/* ==========================================
+   ENTERPRISE CONTACT NEXUS
+========================================== */
+.corporate-contact-card {
+    padding: 50px !important;
+    background: linear-gradient(135deg, rgba(22, 28, 45, 0.4) 0%, rgba(15, 23, 42, 0.6) 100%);
+    position: relative;
+    overflow: hidden;
+}
+
+.corporate-contact-card::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 4px;
+    height: 100%;
+    background: var(--accent);
+}
+
+.contact-grid-layout {
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    gap: 40px;
+    align-items: center;
+}
+
+.nexus-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 14px;
+    background: rgba(255, 255, 255, 0.03);
+    border: 2px solid var(--border);
+    border-radius: 25px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--text-slate);
+    margin-bottom: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.nexus-badge i {
+    color: var(--accent);
+}
+
+.contact-intent h3 {
+    font-size: 1.75rem;
+    color: var(--primary);
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    margin-bottom: 12px;
+}
+
+.contact-intent p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.contact-action-zone {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding-left: 40px;
+    border-left: 2px solid var(--border);
+}
+
+.action-label {
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-light);
+    margin-bottom: 12px;
+    font-weight: 600;
+}
+
+.enterprise-email-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    padding: 16px 24px;
+    background: var(--primary);
+    color: rgb(0, 128, 255);
+    text-decoration: none;
+    border-radius: 30px;
+    font-weight: 600;
+    font-size: 0.95rem;
+    width: 100%;
+    justify-content: space-between;
+    transition: var(--transition);
+    box-shadow: var(--shadow-sm);
+}
+
+.enterprise-email-btn:hover {
+    background: #ffffff;
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+}
+
+.enterprise-email-btn i:not(.arrow-skew) {
+    font-size: 1.1rem;
+    opacity: 0.8;
+}
+
+.arrow-skew {
+    font-size: 1.3rem;
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.enterprise-email-btn:hover .arrow-skew {
+    transform: translate(2px, -2px);
+}
+
+
+/* ==========================================
+   LEFT-ANCHORED SYSTEM TIMELINE
+========================================== */
+.animated-timeline {
+    position: relative;
+    max-width: 900px;
+    margin: 40px auto 0 auto;
+    padding-left: 45px; /* Creates predictable workspace space for markers */
+}
+
+/* Central Tracker Line Layer */
+.timeline-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 16px;
+    width: 2px;
+    background: linear-gradient(to bottom, 
+        rgba(56, 189, 248, 0.4) 0%, 
+        var(--border) 70%, 
+        transparent 100%
+    );
+}
+
+/* Individual Content Blocks */
+.timeline-block {
+    position: relative;
+    margin-bottom: 32px;
+}
+
+.timeline-block:last-child {
+    margin-bottom: 0;
+}
+
+/* Absolute Axis Markers */
+.timeline-marker {
+    position: absolute;
+    left: -45px;
+    top: 20px;
+    width: 34px;
+    height: 34px;
+    background: var(--bg);
+    border: 2px solid var(--border);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 2;
+    transition: var(--transition);
+}
+
+.timeline-marker i {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    transition: var(--transition);
+}
+
+/* Dynamic Hover Reactions */
+.timeline-block:hover .timeline-marker {
+    border-color: var(--accent);
+    box-shadow: 0 0 12px rgba(56, 189, 248, 0.2);
+}
+
+.timeline-block:hover .timeline-marker i {
+    color: var(--accent);
+}
+
+/* Card Content Blocks */
+.timeline-content {
+    padding: 28px 32px !important;
+    transition: var(--transition);
+}
+
+.timeline-header-meta {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+}
+
+.timeline-date {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--text-light);
+}
+
+.timeline-content h3 {
+    font-size: 1.3rem;
+    color: var(--primary);
+    font-weight: 700;
+    letter-spacing: -0.3px;
+}
+
+.degree {
+    font-size: 1rem;
+    color: var(--text-slate);
+    font-weight: 500;
+    margin-top: 2px;
+}
+
+.academic-details {
+    font-size: 0.9rem;
+    color: var(--text-light);
+    margin-top: 12px;
+    line-height: 1.6;
+    border-top: 1px solid rgba(255, 255, 255, 0.04);
+    padding-top: 12px;
+}
+
+/* ==========================================
+   FEATURED ANCHOR (IIT MADRAS) ELEVATION
+========================================== */
+.featured-milestone .timeline-marker {
+    border-color: rgba(56, 189, 248, 0.5);
+    background: rgba(11, 15, 25, 1);
+}
+
+.featured-milestone .timeline-marker i {
+    color: var(--accent);
+}
+
+.featured-milestone .timeline-content {
+    background: linear-gradient(135deg, rgba(22, 28, 45, 0.6) 0%, rgba(15, 23, 42, 0.3) 100%);
+    border-color: rgba(56, 189, 248, 0.15);
+}
+
+.featured-milestone .timeline-content:hover {
+    border-color: rgba(56, 189, 248, 0.3);
+}
+
+.academic-badge {
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: var(--accent);
+    background: rgba(56, 189, 248, 0.08);
+    padding: 3px 8px;
+    border-radius: 4px;
+    border: 1px solid rgba(56, 189, 248, 0.15);
+}
+
+/* ==========================================
+   FRAMELESS CIRCULAR PROFILE ENGINE
+========================================== */
+.hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: right;
+}
+
+.profile-card {
+    position: relative;
+    width: 400px;                  /* Explicit desktop footprint bounds */
+    height: 400px;                 /* Matches width to ensure a perfect 1:1 aspect ratio */
+    border-radius: 50%;            /* Strips corners to create a circular mask */
+    overflow: hidden;              /* Clips the image edges to the circular shape */
+    background: transparent;       /* Explicitly removes any card frame backing */
+    border: none;                  /* Eliminates solid structural layout borders */
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25); /* Polished, premium floating shadow */
+    transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Smooth micro-interaction on component hover */
+.profile-card:hover {
+    transform: scale(1.02);
+}
+
+.profile-card img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;             /* Prevents image stretching or distortion */
+    object-position: center;       /* Keeps facial features centered inside the frame */
+    border-radius: 50%;            /* Secondary safety mask render */
+    display: block;
+}
+
+
+/* ============ philosphy of design ============
+================================================ */
+
+/* Philosophy Section Container */
+.philosophy-section {
+    padding: 60px 0;
+    background-color: #0f172a; /* Deep dark slate background */
+}
+
+/* Terminal Window Window Body */
+.code-terminal-card {
+    background-color: #1e293b;
+    border-radius: 8px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4), 0 0 0 1px rgba(255, 255, 255, 0.05);
+    overflow: hidden;
+    max-width: 700px;
+    margin: 0 auto;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* Terminal Top Header */
+.terminal-header {
+    background-color: #0f172a;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    position: relative;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Window Buttons (Mac style) */
+.terminal-controls {
+    display: flex;
+    gap: 8px;
+}
+
+.control-dot {
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    display: inline-block;
+}
+
+.control-dot.close { background-color: #FF5F56; }
+.control-dot.minimize { background-color: #FFBD2E; }
+.control-dot.expand { background-color: #27C93F; }
+
+/* File Tab Design */
+.terminal-tab {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    color: #94a3b8;
+    font-size: 0.85rem;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+/* Code Display Area */
+.terminal-body {
+    padding: 24px;
+    margin: 0;
+    overflow-x: auto;
+}
+
+.terminal-body pre {
+    margin: 0;
+}
+
+.terminal-body code {
+    color: #e2e8f0;
+    font-size: 0.95rem;
+    line-height: 1.6;
+    font-family: 'JetBrains Mono', monospace;
+}
+
+/* Syntax Highlighting Color Matrix */
+.code-keyword { color: #f472b6; font-weight: 600; }  /* Pink/Magenta for const, while, return */
+.code-function { color: #38bdf8; }                 /* Cyan/Blue for methods/functions */
+.code-variable { color: #818cf8; }                 /* Indigo for names/variables */
+.code-property { color: #fb7185; }                 /* Rose for object property keys */
+.code-string { color: #34d399; }                   /* Emerald green for quotes/strings */
+.code-number { color: #fb923c; }                   /* Orange for numbers */

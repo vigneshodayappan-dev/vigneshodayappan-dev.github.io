@@ -1,0 +1,106 @@
+/* ==========================================
+   RESPONSIVE OVERIDES - CORPORATE MINIMALISM
+========================================== */
+
+@media (max-width: 1024px) {
+    .hero-container {
+        flex-direction: column-reverse;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .hero-section {
+        padding-top: 140px;
+    }
+
+    .hero-content p {
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .about-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 768px) {
+    .navbar {
+        padding: 18px 6%;
+    }
+
+    .menu-btn {
+        display: block;
+    }
+
+    .nav-links {
+        position: absolute;
+        top: 65px;
+        left: 0;
+        width: 100%;
+        flex-direction: column;
+        align-items: center;
+        gap: 18px;
+        padding: 24px;
+        background: #0b0f19;
+        border-bottom: 1px solid var(--border);
+        opacity: 0;
+        transform: translateY(-8px);
+        pointer-events: none;
+        transition: var(--transition);
+    }
+
+    .nav-links.active {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+    }
+
+    .hero-content h1 {
+        font-size: 2.6rem;
+    }
+
+    .section {
+        padding: 75px 6%;
+    }
+
+    .animated-timeline {
+        padding-left: 0;
+    }
+    
+    .leadership-card {
+        flex-direction: column;
+        gap: 16px;
+    }
+}
+
+@media (max-width: 576px) {
+    .hero-content h1 {
+        font-size: 2rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .btn {
+        justify-content: center;
+    }
+
+    .profile-card {
+        width: 260px;
+        height: 260px;
+    }
+
+    .contact-card {
+        padding: 24px;
+    }
+
+    .contact-email {
+        font-size: 0.95rem;
+    }
+}

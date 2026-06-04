@@ -1,0 +1,328 @@
+/* ==========================================
+   ANIMATIONS.CSS
+   Premium Dark + Neon Portfolio
+========================================== */
+
+/* ==========================================
+   FLOATING PROFILE IMAGE
+========================================== */
+
+.profile-card {
+
+    animation: floatProfile 5s ease-in-out infinite;
+
+}
+
+@keyframes floatProfile {
+
+    0% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-15px);
+    }
+
+    100% {
+        transform: translateY(0px);
+    }
+
+}
+
+/* ==========================================
+   GLOWING LOGO
+========================================== */
+
+.logo {
+
+    /* animation: glowLogo 2.5s ease-in-out infinite alternate; */
+
+}
+
+/* @keyframes glowLogo {
+
+    from {
+
+        text-shadow:
+            0 0 5px #00ffff,
+            0 0 10px #00ffff;
+
+    }
+
+    to {
+
+        text-shadow:
+            0 0 10px #00ffff,
+            0 0 20px #00ffff,
+            0 0 30px #00ffff;
+
+    }
+
+} */
+
+/* ==========================================
+   HERO TITLE GLOW
+========================================== */
+
+.hero-content h1 span {
+
+    animation: titleGlow 3s infinite alternate;
+
+}
+
+/* @keyframes titleGlow {
+
+    from {
+
+        text-shadow:
+            0 0 10px #00ffff;
+
+    }
+
+    to {
+
+        text-shadow:
+            0 0 15px #00ffff,
+            0 0 25px #00ffff,
+            0 0 40px #00ffff;
+
+    }
+
+} */
+
+/* ==========================================
+   TYPING CURSOR
+========================================== */
+
+#typing::after {
+
+    content: "|";
+
+    margin-left: 4px;
+
+    color: #00ffff;
+
+    animation: blinkCursor .8s infinite;
+
+}
+
+@keyframes blinkCursor {
+
+    50% {
+        opacity: 0;
+    }
+
+}
+
+/* ==========================================
+   CARD HOVER EFFECT
+========================================== */
+
+.glass-card:hover,
+.project-card:hover {
+
+    transform:
+        translateY(-10px)
+        scale(1.02);
+
+}
+
+/* ==========================================
+   PROJECT CARD GLOW
+========================================== */
+
+.project-card:hover {
+
+    box-shadow:
+        0 0 25px rgba(0,255,255,0.25),
+        0 0 50px rgba(139,92,246,0.2);
+
+}
+
+/* ==========================================
+   BUTTON PULSE
+========================================== */
+
+.primary-btn {
+
+    animation: pulseButton 3s infinite;
+
+}
+
+@keyframes pulseButton {
+
+    0% {
+
+        box-shadow:
+            0 0 0 rgba(0,255,255,0);
+
+    }
+
+    50% {
+
+        box-shadow:
+            0 0 20px rgba(0,255,255,0.4);
+
+    }
+
+    100% {
+
+        box-shadow:
+            0 0 0 rgba(0,255,255,0);
+
+    }
+
+}
+
+/* ==========================================
+   SECTION TITLE APPEAR
+========================================== */
+
+.section-title h2 {
+
+    animation: titleAppear 1.5s ease;
+
+}
+
+@keyframes titleAppear {
+
+    from {
+
+        opacity: 0;
+
+        transform: translateY(20px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform: translateY(0);
+
+    }
+
+}
+
+/* ==========================================
+   LANGUAGE TAG HOVER
+========================================== */
+
+.language-container span {
+
+    transition: .3s ease;
+
+}
+
+.language-container span:hover {
+
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 0 15px rgba(0,255,255,.3);
+
+}
+
+/* ==========================================
+   HERO BUTTON HOVER
+========================================== */
+
+.btn {
+
+    transition:
+        transform .3s ease,
+        box-shadow .3s ease;
+
+}
+
+.btn:hover {
+
+    transform: translateY(-4px);
+
+}
+
+/* ==========================================
+   BACKGROUND FLOATING BLOBS
+========================================== */
+
+body::after {
+
+    content: "";
+
+    position: fixed;
+
+    width: 400px;
+    height: 400px;
+
+    top: -150px;
+    right: -150px;
+
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(0,255,255,.08),
+            transparent 70%
+        );
+
+    animation: blobMove 12s infinite alternate;
+
+    pointer-events: none;
+
+    z-index: -1;
+
+}
+
+@keyframes blobMove {
+
+    from {
+
+        transform:
+            translate(0,0)
+            scale(1);
+
+    }
+
+    to {
+
+        transform:
+            translate(-80px,80px)
+            scale(1.2);
+
+    }
+
+}
+
+/* ==========================================
+   FADE UP EFFECT
+========================================== */
+
+.fade-up {
+
+    animation:
+        fadeUp .8s ease forwards;
+
+}
+
+@keyframes fadeUp {
+
+    from {
+
+        opacity: 0;
+
+        transform:
+            translateY(30px);
+
+    }
+
+    to {
+
+        opacity: 1;
+
+        transform:
+            translateY(0);
+
+    }
+
+}
